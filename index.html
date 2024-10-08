@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Redirect Logger</title>
+</head>
+<body>
+    <h1>OAuth Redirect Logger</h1>
+    <h2>Received Parameters:</h2>
+    <pre id="output"></pre>
+    <script>
+        // Function to get query parameters from URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const output = {};
+            for (const [key, value] of params.entries()) {
+                output[key] = value;
+            }
+            return output;
+        }
+
+        // Log the parameters on the page
+        const params = getQueryParams();
+        document.getElementById('output').textContent = JSON.stringify(params, null, 2);
+    </script>
+</body>
+</html>
